@@ -1,6 +1,24 @@
 .dashboard-container {
   padding: 20px;
+  background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d'); /* Professional LinkedIn-style background */
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.user-profile, .post-upload, .user-posts, .following-posts, .logout-section {
+  background-color: rgba(255, 255, 255, 0.85); /* Light background with transparency */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
 
 .user-profile {
   margin-bottom: 20px;

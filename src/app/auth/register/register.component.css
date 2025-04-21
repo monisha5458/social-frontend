@@ -1,11 +1,22 @@
 .register-container {
-    width: 300px;
-    margin: 100px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+  width: 300px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.85); /* translucent white */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-image: url('https://images.pexels.com/photos/7130470/pexels-photo-7130470.jpeg?auto=compress&cs=tinysrgb&w=1920');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+}
+
   
   h2 {
     text-align: center;
