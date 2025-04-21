@@ -1,0 +1,26 @@
+<div class="post-container">
+  <div class="post-header">
+    <h3>{{ post.content }}</h3> <!-- Displaying content of the post -->
+    <span class="post-author">{{ post.author.username }}</span> <!-- Author's username -->
+    <span class="post-date">{{ post.createdAt | date: 'short' }}</span> <!-- Showing creation date -->
+  </div>
+  
+  <!-- Optional media URL to display if available -->
+  <div *ngIf="post.mediaUrl">
+    <img [src]="post.mediaUrl" alt="Post media" class="post-media"/>
+  </div>
+  
+  <p class="post-content">{{ post.content }}</p> <!-- Post content -->
+
+  <div class="post-actions">
+    <button class="btn btn-like" (click)="likePost(post._id)">Like ({{ post.likes.length }})</button> <!-- Like button with like count -->
+    <button class="btn btn-comment">Comment</button>
+  </div>
+</div>
+<div class="post">
+  <p>{{ post.content }}</p>
+  <img *ngIf="post.mediaUrl" [src]="post.mediaUrl" alt="Post Media" />
+  
+  <!-- Delete button -->
+  <button (click)="onDelete(post._id)">Delete Post</button>
+</div>

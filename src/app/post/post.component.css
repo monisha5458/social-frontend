@@ -1,0 +1,48 @@
+.post-container {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  h3 {
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  .post-author {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .post-content {
+    margin: 15px 0;
+  }
+  
+  .post-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  button {
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-like {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .btn-comment {
+    background-color: #0073b1;
+    color: white;
+  }
+  
