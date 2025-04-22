@@ -1,10 +1,10 @@
 <div class="dashboard-container">
   <!-- User Profile Section -->
   <div class="user-profile">
-    <h2>Welcome To Your  Profile</h2>
-    <p>Posts: {{ posts.length }}</p>
-    <p>Followers: 5</p> <!-- Hardcoded if you want -->
-    <p>Following: 3</p>
+    <h2>Welcome {{ userProfile.username }}</h2>
+    <p>Posts: {{ userProfile.posts.length }}</p>
+    <p>Followers: {{ userProfile.followers.length }}</p> <!-- Hardcoded if you want -->
+    <p>Following: {{ userProfile.following.length }}</p>
   </div>
 
   <!-- Upload Post Section -->
@@ -19,6 +19,7 @@
   <div class="user-posts">
     <h3>Your Posts</h3>
     <div *ngFor="let post of posts" class="post">
+      <img *ngIf="post.mediaUrl" [src]="post.mediaUrl" alt="Post Image" class="post-image" />
       <p>{{ post.content }}</p>
       <button (click)="deletePost(post._id)">Delete Post</button>
     </div>
@@ -29,6 +30,7 @@
     <h3>Following Posts</h3>
     <div *ngFor="let post of followingPosts" class="post">
       <p>{{ post.content }}</p>
+      <img *ngIf="post.mediaUrl" [src]="post.mediaUrl" alt="Post Image" class="post-image" />
       <p>Posted by: {{ post.author.username }}</p>
     </div>
   </div>

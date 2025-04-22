@@ -9,7 +9,8 @@ import { AuthService } from '../../auth.service'; // adjust path as needed
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   email: string = ''; // changed from username

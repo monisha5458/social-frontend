@@ -1,80 +1,79 @@
-/* Fullscreen background */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  background-image: url('https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1920');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Login container with glass effect */
 .login-container {
-  width: 350px;
-  margin: 80px auto;
+  width: 100%;
+  max-width: 350px;
+  margin: 100px auto;
   padding: 30px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Logo or heading */
 .login-container h2 {
-  text-align: center;
+  font-size: 26px;
   margin-bottom: 20px;
+  color: #333;
   font-weight: bold;
 }
 
-/* Form group */
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  text-align: left;
 }
 
-label {
+.form-group label {
   display: block;
   margin-bottom: 6px;
-  font-weight: 600;
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-  outline: none;
   font-size: 14px;
+  color: #555;
+  font-weight: 500;
 }
 
-/* Button */
-button {
+.form-group input {
   width: 100%;
-  padding: 10px;
-  background-color: #00bcd4;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: #4f46e5;
+  outline: none;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #4f46e5;
   border: none;
+  border-radius: 8px;
   color: white;
-  font-size: 16px;
-  border-radius: 6px;
+  font-weight: 600;
+  font-size: 15px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
   margin-top: 10px;
 }
 
-button:hover {
-  background-color: #0097a7;
+button[type="submit"]:hover {
+  background-color: #3b36c4;
 }
 
-/* Register link */
 .register-link {
-  text-align: center;
   margin-top: 15px;
+  font-size: 14px;
 }
 
 .register-link a {
-  color: #ffffff;
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.register-link a:hover {
   text-decoration: underline;
 }
