@@ -1,42 +1,78 @@
 <div class="dashboard-container">
-  <!-- User Profile Section -->
-  <div class="user-profile">
-    <h2>Welcome {{ userProfile.username }}</h2>
-    <p>Posts: {{ userProfile.posts.length }}</p>
-    <p>Followers: {{ userProfile.followers.length }}</p> <!-- Hardcoded if you want -->
-    <p>Following: {{ userProfile.following.length }}</p>
-  </div>
-
-  <!-- Upload Post Section -->
-  <div class="post-upload">
-    <h3>Create a New Post</h3>
-    <textarea [(ngModel)]="postContent" placeholder="What's on your mind?"></textarea>
-    <input type="file" (change)="onMediaSelected($event)" />
-    <button (click)="createPost()">Post</button>
-  </div>
-
-  <!-- User's Own Posts Section -->
-  <div class="user-posts">
-    <h3>Your Posts</h3>
-    <div *ngFor="let post of posts" class="post">
-      <img *ngIf="post.mediaUrl" [src]="post.mediaUrl" alt="Post Image" class="post-image" />
-      <p>{{ post.content }}</p>
-      <button (click)="deletePost(post._id)">Delete Post</button>
-    </div>
-  </div>
-
-  <!-- Following Posts Section -->
-  <div class="following-posts">
-    <h3>Following Posts</h3>
-    <div *ngFor="let post of followingPosts" class="post">
-      <p>{{ post.content }}</p>
-      <img *ngIf="post.mediaUrl" [src]="post.mediaUrl" alt="Post Image" class="post-image" />
-      <p>Posted by: {{ post.author.username }}</p>
-    </div>
-  </div>
-
-  <!-- Logout Section -->
-  <div class="logout-section">
+  <div class="sidebar">
+    <!-- Navigation Buttons -->
+    <button (click)="toggleProfileVisibility()">User Profile</button>
+    <button (click)="showUserPosts()">Your Posts</button>
+    <button (click)="showFollowingPosts()">Following Posts</button>
     <button (click)="logout()">Logout</button>
+  </div>
+
+  <!-- Main Content Section -->
+  <div class="content">
+    <!-- User Profile Section -->
+    <div *ngIf="isProfileVisible" class="user-profile">
+      <h2>Welcome {{ userProfile.username }}</h2>
+      <p>Posts: {{ userProfile.posts.length }}</p>
+      <p>Followers: {{ userProfile.followers.length }}</p>
+      <p>Following: {{ userProfile.following.length }}</p>
+    </div>
+
+    <!-- User's Own Posts Section -->
+    <div *ngIf="showUserPostSection" class="user-posts">
+      <h3>Your Posts</h3>
+      <div *ngFor="let post of posts" class="post">
+        <img *ngIf="post.mediaUrl" [src]="post.mediaUrl" alt="Post Image" class="post-image" />
+        <p>{{ post.content }}</p>
+        <button (click)="deletePost(post._id)">Delete Post</button>
+      </div>
+    </div>
+
+   <!-- Following Posts Section -->
+<div *ngIf="showFollowingPostSection" class="following-posts">
+  <h3>Following Posts</h3>
+  <div *ngFor="let post of followingPosts" class="post">
+    <p>{{ post.content }}</p>
+    <img *ngIf="post.mediaUrl" [src]="post.mediaUrl" alt="Post Image" class="post-image" />
+    <p>Posted by: {{ post.author.username }}</p>
+
+    <!-- 👍 Like / 👎 Unlike Buttons -->
+    <div class="post-actions">
+      <button (click)="like(post._id)">Like</button>
+      <button (click)="unlike(post._id)">Unlike</button>
+      <span>{{ post.likes.length }} Likes</span>
+    </div>
+  </div>
+</div>
+
+    
+
+    <!-- Post Upload Section -->
+    <div class="post-upload">
+      <h3>Create a New Post</h3>
+      <textarea [(ngModel)]="postContent" placeholder="What's on your mind?"></textarea>
+      <input type="file" (change)="onMediaSelected($event)" />
+      <button (click)="createPost()">Post</button>
+    </div>
+
+    <div class="user-search">
+      <input
+        type="text"
+        placeholder="Search users..."
+        [(ngModel)]="searchTerm"
+      />
+      <button (click)="searchUsers()">Search</button>
+    </div>
+    
+    <!-- 2) Results -->
+    <ul *ngIf="searchResults.length">
+      <li *ngFor="let user of searchResults">
+        {{ user.username }}
+        <button
+          (click)="toggleFollow(user._id, user.isFollowing)"
+        >
+          {{ user.isFollowing ? 'Unfollow' : 'Follow' }}
+        </button>
+      </li>
+    </ul>
   </div>
 </div>

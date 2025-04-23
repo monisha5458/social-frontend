@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +24,30 @@ export class UserService {
     return new HttpHeaders({
       Authorization: `Bearer ${token}`
     });
+  }
+
+  // This is the method you're missing
+  private handleError(error: any) {
+    console.error('An error occurred:', error);
+    return throwError(() => new Error('Something went wrong; please try again later.'));
+  }
+
+   // New: search users by username
+   searchUsers(q: string): Observable<{ _id: string; username: string }[]> {
+    return this.http
+      .get<{ _id: string; username: string }[]>(`${this.apiUrl}/search?q=${encodeURIComponent(q)}`, {
+        headers: this.getAuthHeaders()
+      })
+      .pipe(catchError(this.handleError));
+  }
+  followUser(userId: string): Observable<any> {
+    return this.http.put(`${this.apiUrl}/follow/${userId}`, {}, {
+      headers: this.getAuthHeaders()
+    }).pipe(catchError(this.handleError));
+  }
+  unfollowUser(userId: string): Observable<any> {
+    return this.http.put(`${this.apiUrl}/unfollow/${userId}`, {}, {
+      headers: this.getAuthHeaders()
+    }).pipe(catchError(this.handleError));
   }
 }

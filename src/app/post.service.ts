@@ -63,12 +63,6 @@ export class PostService {
     }).pipe(catchError(this.handleError));
   }
 
-  // Like a post
-  likePost(postId: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/${postId}/like`, {}, {
-      headers: this.getAuthHeaders()
-    }).pipe(catchError(this.handleError));
-  }
 
   // Get general feed
   getFeed(): Observable<Post[]> {
@@ -94,5 +88,19 @@ export class PostService {
     }
     console.error(errorMessage);
     return throwError(() => new Error(errorMessage));
+  }
+
+ likePost(postId: string): Observable<any> {
+  return this.http.put(`${this.apiUrl}/like/${postId}`, {}, {
+    headers: this.getAuthHeaders()
+  }).pipe(catchError(this.handleError));
+ 
+}
+
+  
+  unlikePost(postId: string) {
+    return this.http.put(`${this.apiUrl}/unlike/${postId}`, {}, {
+      headers: this.getAuthHeaders()
+    }).pipe(catchError(this.handleError));
   }
 }

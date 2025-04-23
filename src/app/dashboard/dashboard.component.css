@@ -1,27 +1,41 @@
 .dashboard-container {
-  padding: 20px;
-  background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d'); /* Professional LinkedIn-style background */
-  background-size: cover;
-  background-position: center;
+  display: flex;
   min-height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
-.user-profile, .post-upload, .user-posts, .following-posts, .logout-section {
-  background-color: rgba(255, 255, 255, 0.85); /* Light background with transparency */
+.sidebar button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: left;
+}
+
+.sidebar button:hover {
+  background-color: #0056b3;
+}
+
+.content {
+  flex-grow: 1;
   padding: 20px;
+  background-color: rgba(255, 255, 255, 0.85); 
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  width: 100%;
-  max-width: 600px;
-}
-
-
-.user-profile {
-  margin-bottom: 20px;
+  margin-left: 20px;
 }
 
 h2 {
@@ -55,8 +69,4 @@ button:hover {
   border: 1px solid #ddd;
   padding: 15px;
   margin-bottom: 10px;
-}
-
-.logout-section {
-  margin-top: 20px;
 }
