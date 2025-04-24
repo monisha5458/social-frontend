@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common'; // for common Angular directives
 import { FormsModule } from '@angular/forms'; // required for ngModel
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @Component({
@@ -13,7 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,   // necessary for routing
     CommonModule,   // includes common directives like ngIf, ngFor
     FormsModule, 
-    HeaderComponent,  // required for ngModel (two-way data binding)
+    HeaderComponent, 
+    UserProfileComponent, // required for ngModel (two-way data binding)
   ],
   templateUrl: './app.component.html',
 })

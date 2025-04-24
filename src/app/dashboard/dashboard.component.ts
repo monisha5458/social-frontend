@@ -69,6 +69,11 @@ export class DashboardComponent implements OnInit {
     return storedUsername ? storedUsername : 'Guest';  // Return stored username or 'Guest'
   }
 
+  goToUserProfile() {
+    this.router.navigate(['/profile']);
+  }
+  
+
   // Load user profile
   loadUserProfile() {
     this.userService.getUserProfile().subscribe({
@@ -150,6 +155,9 @@ export class DashboardComponent implements OnInit {
         }
       });
     }
+  }
+  navigateToCreatePost() {
+    this.router.navigate(['/create-post']);
   }
 
   // Handle media file input

@@ -1,0 +1,20 @@
+<div *ngIf="userProfile; else loading">
+    <div class="profile-container">
+      <!-- Profile Picture -->
+  
+      <!-- Profile Details -->
+  
+      <!-- User Profile Statistics -->
+      <div *ngIf="isProfileVisible" class="user-profile">
+        <h3>Welcome, {{ userProfile.username }}</h3>
+        <p><strong>Posts:</strong> {{ userProfile.posts.length }}</p>
+        <p><strong>Followers:</strong> {{ userProfile.followers.length }}</p>
+        <p><strong>Following:</strong> {{ userProfile.following.length }}</p>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #loading>
+    <p>Loading profile...</p>
+  </ng-template>
+  

@@ -1,7 +1,8 @@
 <div class="dashboard-container">
   <div class="sidebar">
     <!-- Navigation Buttons -->
-    <button (click)="toggleProfileVisibility()">User Profile</button>
+    <button (click)="goToUserProfile()">MyProfile</button>
+    <button (click)="navigateToCreatePost()">Create Post</button>
     <button (click)="showUserPosts()">Your Posts</button>
     <button (click)="showFollowingPosts()">Following Posts</button>
     <button (click)="logout()">Logout</button>
@@ -9,13 +10,13 @@
 
   <!-- Main Content Section -->
   <div class="content">
-    <!-- User Profile Section -->
+    <!-- User Profile Section
     <div *ngIf="isProfileVisible" class="user-profile">
       <h2>Welcome {{ userProfile.username }}</h2>
       <p>Posts: {{ userProfile.posts.length }}</p>
       <p>Followers: {{ userProfile.followers.length }}</p>
       <p>Following: {{ userProfile.following.length }}</p>
-    </div>
+    </div> -->
 
     <!-- User's Own Posts Section -->
     <div *ngIf="showUserPostSection" class="user-posts">
@@ -37,8 +38,8 @@
 
     <!-- 👍 Like / 👎 Unlike Buttons -->
     <div class="post-actions">
-      <button (click)="like(post._id)">Like</button>
-      <button (click)="unlike(post._id)">Unlike</button>
+      <button (click)="like(post._id)">👍</button>
+      <button (click)="unlike(post._id)">👎</button>
       <span>{{ post.likes.length }} Likes</span>
     </div>
   </div>
@@ -46,13 +47,13 @@
 
     
 
-    <!-- Post Upload Section -->
+    <!-- Post Upload Section
     <div class="post-upload">
       <h3>Create a New Post</h3>
       <textarea [(ngModel)]="postContent" placeholder="What's on your mind?"></textarea>
       <input type="file" (change)="onMediaSelected($event)" />
       <button (click)="createPost()">Post</button>
-    </div>
+    </div> -->
 
     <div class="user-search">
       <input
