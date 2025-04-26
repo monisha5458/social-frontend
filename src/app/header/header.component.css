@@ -1,24 +1,65 @@
-.header-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #0073b1;
-    color: white;
-    align-items: center;
-  }
+ /* .header-nav {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 40px;
+  color:black;
+  align-items: center;
+  background-image: url('../../assets/images/UstGramlogo.png');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+}
+
+.logo h1 {
+  margin: 0;
+  text-align: center;
   
-  .logo h1 {
-    margin: 0;
-  }
+}
+h1 {
+  font-size: 2.0rem; 
   
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 16px;
-  }
-  
-  .nav-links a:hover {
-    text-decoration: underline;
-  }
-  
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+} 
+
+
+ */
+
+
+ .header-nav {
+  display: flex;
+  justify-content: center;
+  padding: 0px 0px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.logo-text {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #222;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
