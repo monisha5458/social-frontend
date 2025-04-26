@@ -112,9 +112,11 @@ button:hover {
 }
 
 .search-icon {
+  margin-left: 0px; /* Adds space between "Search" and the icon */
   font-size: 18px;
   color: #fff;
 }
+
 
 .search-input::placeholder {
   color: #888;
